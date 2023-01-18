@@ -7,6 +7,7 @@ echo Game Port   : $PORT
 echo Query Port  : $QUERYPORT
 echo Steam UID   : $STEAM_USERID
 echo Steam GID   : $STEAM_GROUPID
+echo Branch      : $Branch
 
 echo ====================
 echo Setting User ID...
@@ -31,7 +32,7 @@ sudo -u steam /home/steam/steamcmd/steamcmd.sh \
     +@sSteamCmdForcePlatformType windows \
     +force_install_dir /game/icarus \
     +login anonymous \
-    +app_update 2089300 \
+    +app_update 2089300 -beta "${BRANCH}" validate \
     +quit
 
 echo ==============================================================
