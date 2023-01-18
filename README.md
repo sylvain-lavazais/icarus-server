@@ -8,6 +8,8 @@ This dedicated server will automatically download/update to the latest available
 - QUERYPORT : The query port (not specifying it will default to 27015)
 - STEAM_USERID : Linux User ID used by the steam user and volumes (not specifying it will default to 1000)
 - STEAM_GROUPID: Linux Group ID used by the steam user and volumes (not specifying it will default to 1000)
+- BRANCH: Version branch (public or experimental, not specifying it will default to public)
+
 
 ## Ports
 The server requires 2 UDP Ports, the game port (Default 17777) and the query port (Default 27015)
@@ -45,10 +47,12 @@ services:
       - game:/game/icarus
     environment:
       - SERVERNAME=AmazingServer
+      - BRANCH=public
       - PORT=17777
       - QUERYPORT=27015
       - STEAM_USERID=1000
       - STEAM_GROUPID=1000
+
 volumes:
   data: {}
   game: {}

@@ -7,6 +7,7 @@ ENV QUERYPORT=27015
 # Default User/Group ID
 ENV STEAM_USERID=1000
 ENV STEAM_GROUPID=1000
+ENV BRANCH="public"
 
 # Get prereq packages
 RUN dpkg --add-architecture i386
