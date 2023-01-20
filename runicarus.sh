@@ -7,7 +7,7 @@ echo Game Port   : $PORT
 echo Query Port  : $QUERYPORT
 echo Steam UID   : $STEAM_USERID
 echo Steam GID   : $STEAM_GROUPID
-echo Branch      : $Branch
+echo Branch      : $BRANCH
 
 echo ====================
 echo Setting User ID...
