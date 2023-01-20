@@ -8,6 +8,7 @@ This dedicated server will automatically download/update to the latest available
 - QUERYPORT : The query port (not specifying it will default to 27015)
 - STEAM_USERID : Linux User ID used by the steam user and volumes (not specifying it will default to 1000)
 - STEAM_GROUPID: Linux Group ID used by the steam user and volumes (not specifying it will default to 1000)
+- STEAM_ASYNC_TIMEOUT: Sets the Async timeout to this value in the Engine.ini on server start (not specifying it will default to 60)
 - BRANCH: Version branch (public or experimental, not specifying it will default to public)
 
 
@@ -52,6 +53,8 @@ services:
       - QUERYPORT=27015
       - STEAM_USERID=1000
       - STEAM_GROUPID=1000
+      - STEAM_ASYNC_TIMEOUT=60
+      - BRANCH=public
 
 volumes:
   data: {}
@@ -60,13 +63,6 @@ volumes:
 networks:
   host: {}
 ```
-
-## KNOWN ISSUES
-There is currently an issue with connections to steam to register the server in the in-game browser.
-This is not something that I can fix, RocketWerkz will need to make the steam server creation timeout higher or configurable before this will work reliably.
-If your server is not appearing in the list, check the logs, if you have the following message then this issue may be affecting you.
-**LogOnline: Warning: OSS: Async task 'FOnlineAsyncTaskSteamCreateServer bWasSuccessful: 0' failed in 15.016910 seconds**
-This issue occurs more often with lower end hardware.
 
 ## License
 MIT License
