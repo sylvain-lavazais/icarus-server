@@ -36,6 +36,24 @@ sudo -u steam /home/steam/steamcmd/steamcmd.sh \
     +quit
 
 echo ==============================================================
+echo Setting Steam Async Timeout value in Engine.ini to echo $STEAM_ASYNC_TIMEOUT
+echo ==============================================================
+configPath='/home/steam/.wine/drive_c/icarus/Saved/Config/WindowsServer'
+if [[ ! -e ${configPath}/Engine.ini ]]; then
+  mkdir -p ${configPath}
+  touch ${configPath}/Engine.ini
+fi
+
+if ! grep -Fxq "[OnlineSubsystemSteam]" ${configPath}/Engine.ini
+then
+    echo '[OnlineSubsystemSteam]' >> ${configPath}/Engine.ini
+    echo 'AsyncTaskTimeout=' >> ${configPath}/Engine.ini
+fi
+
+sedCommand='/AsyncTaskTimeout=/c\AsyncTaskTimeout='${STEAM_ASYNC_TIMEOUT}
+sed -i ${sedCommand} ${configPath}/Engine.ini
+
+echo ==============================================================
 echo Starting Server - Buckle up prospectors!
 echo ==============================================================
 sudo -u steam wine /game/icarus/Icarus/Binaries/Win64/IcarusServer-Win64-Shipping.exe -Log -UserDir='C:\icarus' -SteamServerName="${SERVERNAME}" -PORT="${PORT}" -QueryPort="${QUERYPORT}"
