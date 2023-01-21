@@ -54,7 +54,6 @@ services:
       - STEAM_USERID=1000
       - STEAM_GROUPID=1000
       - STEAM_ASYNC_TIMEOUT=60
-      - BRANCH=public
 
 volumes:
   data: {}
