@@ -1,8 +1,8 @@
 
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/nerodon/icarus-dedicated.svg)](https://hub.docker.com/r/nerodon/icarus-dedicated)
-[![Docker Stars](https://img.shields.io/docker/stars/nerodon/icarus-dedicated.svg)](https://hub.docker.com/r/nerodon/icarus-dedicated)
-[![Docker Image Size (tag)](https://img.shields.io/docker/image-size/nerodon/icarus-dedicated.svg)](https://hub.docker.com/r/nerodon/icarus-dedicated)
+![Docker Pulls](https://img.shields.io/docker/pulls/nerodon/icarus-dedicated)
+![Docker Stars](https://img.shields.io/docker/stars/nerodon/icarus-dedicated)
+![Docker Image Size (tag)](https://img.shields.io/docker/image-size/nerodon/icarus-dedicated/latest)
 ![GitLab (self-managed)](https://img.shields.io/gitlab/license/fred-beauch%2Ficarus-dedicated-server)
 ![Static Badge](https://img.shields.io/badge/Repository-Gitlab-orange?logo=gitlab&link=https%3A%2F%2Fgitlab.com%2Ffred-beauch%2Ficarus-dedicated-server)
 
