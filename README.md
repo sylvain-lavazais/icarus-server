@@ -1,6 +1,19 @@
+
+
+[![Docker Pulls](https://img.shields.io/docker/pulls/nerodon/icarus-dedicated.svg)](https://hub.docker.com/r/nerodon/icarus-dedicated)
+[![Docker Stars](https://img.shields.io/docker/stars/nerodon/icarus-dedicated.svg)](https://hub.docker.com/r/nerodon/icarus-dedicated)
+[![Docker Image Size (tag)](https://img.shields.io/docker/image-size/nerodon/icarus-dedicated.svg)](https://hub.docker.com/r/nerodon/icarus-dedicated)
+![GitLab (self-managed)](https://img.shields.io/gitlab/license/fred-beauch%2Ficarus-dedicated-server)
+![Static Badge](https://img.shields.io/badge/Repository-Gitlab-orange?logo=gitlab&link=https%3A%2F%2Fgitlab.com%2Ffred-beauch%2Ficarus-dedicated-server)
+
+For assistance, message **@Nerodon** on the official Icarus Discord
+
+![Discord](https://img.shields.io/discord/715761957667602502?logo=discord&logoColor=white&label=Icarus%20Discord)
+
+
+
 # icarus-dedicated-server
 This dedicated server will automatically download/update to the latest available server version when started. The dedicated server runs in Ubuntu 22.04 and wine
-[GIT REPO HERE](https://gitlab.com/fred-beauch/icarus-dedicated-server)
 
 ## Environment Vars
 - SERVERNAME : The name of the server on the server browser (You must specify this, the SessionName in the ServerSettings.ini file is always ignored)
@@ -23,11 +36,11 @@ They can be changed by specifying the PORT and QUERYPORT env vars respectively.
 **Note:** by default, the volumes are owned by user 1000:1000 please set the permissions to the volumes accordingly. To change the user and group ID, simply define the STEAM_USERID and STEAM_GROUPID environment variables.
 
 ## Example Docker Run
-```
+```bash
 docker run -p 17777:17777/udp -p 27015:27015/udp -v data:/home/steam/.wine/drive_c/icarus -v game:/game/icarus -e SERVERNAME=AmazingServer nerodon/icarus-dedicated:latest
 ```
 ## Example Docker Compose
-```
+```yaml
 version: "3.8"
 
 services:
@@ -65,3 +78,19 @@ networks:
 
 ## License
 MIT License
+
+## Known Issues
+
+* Out of memory error: `Freeing x bytes from backup pool to handle out of memory`
+  and `Fatal error: [File: Unknown] [Line: 197] \nRan out of memory allocating 0 bytes with alignment 0\n` but system
+  has enough memory.
+  * **Solution:** Increase maximum number of memory map areas (vm.max_map_count) tested with `262144`<br/>
+    **temporary:**
+    ```bash
+      sysctl -w vm.max_map_count=262144
+    ```
+    **permanent:**
+    ```bash
+      echo "vm.max_map_count=262144" >> /etc/sysctl.conf && sysctl -p
+    ```
+  **Credit:** Thanks to Icarus discord user **Fabiryn** for the solution.
