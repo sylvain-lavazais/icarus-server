@@ -3,12 +3,14 @@
 ![Docker Pulls](https://img.shields.io/docker/pulls/nerodon/icarus-dedicated)
 ![Docker Stars](https://img.shields.io/docker/stars/nerodon/icarus-dedicated)
 ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/nerodon/icarus-dedicated/latest)
-![GitLab (self-managed)](https://img.shields.io/gitlab/license/fred-beauch%2Ficarus-dedicated-server)
-![Static Badge](https://img.shields.io/badge/Repository-Gitlab-orange?logo=gitlab&link=https%3A%2F%2Fgitlab.com%2Ffred-beauch%2Ficarus-dedicated-server)
+![GitLab (self-managed)](https://img.shields.io/gitlab/license/fred-beauch/icarus-dedicated-server)
 
-For assistance, message **@Nerodon** on the official Icarus Discord
 
-![Discord](https://img.shields.io/discord/715761957667602502?logo=discord&logoColor=white&label=Icarus%20Discord)
+
+For assistance, message **@Nerodon** on the official Icarus Discord or open an issue on Gitlab
+
+[<img src="https://img.shields.io/discord/715761957667602502?logo=discord&logoColor=white&label=Icarus%20Discord">](https://discord.com/channels/715761957667602502/1048852109996593172)
+[<img src="https://img.shields.io/badge/Repository-Gitlab-orange?logo=gitlab">](https://gitlab.com/fred-beauch/icarus-dedicated-server)
 
 
 
