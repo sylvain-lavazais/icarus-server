@@ -18,13 +18,26 @@ For assistance, message **@Nerodon** on the official Icarus Discord or open an i
 This dedicated server will automatically download/update to the latest available server version when started. The dedicated server runs in Ubuntu 22.04 and wine
 
 ## Environment Vars
-- SERVERNAME : The name of the server on the server browser (You must specify this, the SessionName in the ServerSettings.ini file is always ignored)
-- PORT : The game port (not specifying it will default to 17777)
-- QUERYPORT : The query port (not specifying it will default to 27015)
-- STEAM_USERID : Linux User ID used by the steam user and volumes (not specifying it will default to 1000)
-- STEAM_GROUPID: Linux Group ID used by the steam user and volumes (not specifying it will default to 1000)
-- STEAM_ASYNC_TIMEOUT: Sets the Async timeout to this value in the Engine.ini on server start (not specifying it will default to 60)
-- BRANCH: Version branch (public or experimental, not specifying it will default to public)
+Refer to https://github.com/RocketWerkz/IcarusDedicatedServer/wiki/Server-Config-&-Launch-Parameters for more detail on server configs
+| ENV Var | Description| Default Value if unspecified|
+|---------|------------|-----------------------------|
+|SERVERNAME| The name of the server on the server browser| Icarus Server
+|PORT| The game port| 17777
+|QUERYPORT| The query port| 27015
+|JOIN_PASSWORD|Password required to join the server. Leave empty to not use a password.|
+|MAX_PLAYERS|Max Players that can be on the server at once. Minimum 1, Maximum 8|8
+|ADMIN_PASSWORD|Password required for using admin RCON commands.<br /> **NOTE:** If left empty just using the RCON /AdminLogin will give admin privilege's to a player (effectively an empty password)|admin
+|SHUTDOWN_NOT_JOINED_FOR|When the server starts up, if no players join within this time, the server will shutdown and return to lobby. During this window the game will be paused. <br />Values of < 0 will cause the server to run indefinitely. <br />A value of 0 will cause the server to shutdown immediately. <br />Values of > 0 will wait that time in seconds.|-1
+|SHUTDOWN_EMPTY_FOR|When the server becomes empty the server will shutdown and return to lobby after this time (in seconds). During this window the game will be paused. <br />Values of < 0 will cause the server to run indefinitely. <br />A value of 0 will cause the server to shutdown immediately. <br />Values of > 0 will wait that time in seconds.|-1
+|ALLOW_NON_ADMINS_LAUNCH|If true anyone who joins the lobby can create a new prospect or load an existing one. If false players will be required to login as admin in order to create or load a prospect.|True
+|ALLOW_NON_ADMINS_DELETE|If true anyone who joins the lobby can delete prospects from the server. If false players will be required to login as admin in order to delete a prospect.|False
+|LOAD_PROSPECT|Attempts to load a prospect by name from the Saved/PlayerData/DedicatedServer/Prospects/ folder.|
+|CREATE_PROSPECT|Creates and launches a new prospect. <br />**[ProspectType] [Difficulty] [Hardcore?] [SaveName]** <br />ProspectType - The internal name of the prospect to launch <br />Difficulty - A value of 1 to 4 for the difficulty (1 = easy, 4 = extreme) <br />Hardcore? - True or False value for if respawns are disabled <br />SaveName - The save name to use for this prospect. Must be included for outposts, if not included with regular prospects this will generate a random name. <br />**Example:** "Tier1_Forest_Recon_0 3 false TestProspect01" Will create a prospect on the tutorial prospect on hard difficulty and save it as TestProspect01|
+|RESUME_PROSPECT|Resumes the last prospect from the config file|True
+|STEAM_USERID| Linux User ID used by the steam user and volumes|1000
+|STEAM_GROUPID| Linux Group ID used by the steam user and volumes|1000
+|STEAM_ASYNC_TIMEOUT| Sets the Async timeout to this value in the Engine.ini on server start| 60
+|BRANCH| Version branch (public or experimental)| public
 
 
 ## Ports
@@ -39,7 +52,7 @@ They can be changed by specifying the PORT and QUERYPORT env vars respectively.
 
 ## Example Docker Run
 ```bash
-docker run -p 17777:17777/udp -p 27015:27015/udp -v data:/home/steam/.wine/drive_c/icarus -v game:/game/icarus -e SERVERNAME=AmazingServer nerodon/icarus-dedicated:latest
+docker run -p 17777:17777/udp -p 27015:27015/udp -v data:/home/steam/.wine/drive_c/icarus -v game:/game/icarus -e SERVERNAME=AmazingServer -e PASSWORD=mypassword -e ADMIN_PASSWORD=mysupersecretpassword  nerodon/icarus-dedicated:latest
 ```
 ## Example Docker Compose
 ```yaml
@@ -62,10 +75,12 @@ services:
       - data:/home/steam/.wine/drive_c/icarus
       - game:/game/icarus
     environment:
-      - SERVERNAME=AmazingServer
+      - SERVERNAME=myAmazingServer
       - BRANCH=public
       - PORT=17777
       - QUERYPORT=27015
+      - JOIN_PASSWORD=mypassword
+      - ADMIN_PASSWORD=mysupersecretpassword
       - STEAM_USERID=1000
       - STEAM_GROUPID=1000
       - STEAM_ASYNC_TIMEOUT=60
