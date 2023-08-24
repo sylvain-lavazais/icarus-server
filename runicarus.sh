@@ -60,9 +60,7 @@ echo Setting Server settings in GameUserSettings.ini
 echo ==============================================================
 
 echo Session Name       : $SERVERNAME
-echo Join Password      : $JOIN_PASSWORD
 echo Max Players        : $MAX_PLAYERS
-echo Admin Password     : $ADMIN_PASSWORD
 echo Shutdown If Not Joined For : $SHUTDOWN_NOT_JOINED_FOR
 echo Shutdown If Empty For      : $SHUTDOWN_EMPTY_FOR
 echo Allow Non Admins To Launch Prospects : $ALLOW_NON_ADMINS_LAUNCH
