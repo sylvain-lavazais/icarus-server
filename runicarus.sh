@@ -53,6 +53,9 @@ fi
 sedCommand='/AsyncTaskTimeout=/c\AsyncTaskTimeout='${STEAM_ASYNC_TIMEOUT}
 sed -i ${sedCommand} ${configPath}/Engine.ini
 
+echo Changing config folder permissions...
+chown -R "${STEAM_USERID}":"${STEAM_GROUPID}" home/steam/.wine/drive_c/icarus
+
 echo ==============================================================
 echo Starting Server - Buckle up prospectors!
 echo ==============================================================
