@@ -52,7 +52,7 @@ They can be changed by specifying the PORT and QUERYPORT env vars respectively.
 
 ## Example Docker Run
 ```bash
-docker run -p 17777:17777/udp -p 27015:27015/udp -v data:/home/steam/.wine/drive_c/icarus -v game:/game/icarus -e SERVERNAME=AmazingServer -e PASSWORD=mypassword -e ADMIN_PASSWORD=mysupersecretpassword  nerodon/icarus-dedicated:latest
+docker run -p 17777:17777/udp -p 27015:27015/udp -v data:/home/steam/.wine/drive_c/icarus -v game:/game/icarus -e SERVERNAME=AmazingServer -e JOIN_PASSWORD=mypassword -e ADMIN_PASSWORD=mysupersecretpassword  nerodon/icarus-dedicated:latest
 ```
 ## Example Docker Compose
 ```yaml
