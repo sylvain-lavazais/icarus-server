@@ -110,4 +110,9 @@ chown -R "${STEAM_USERID}":"${STEAM_GROUPID}" home/steam/.wine/drive_c/icarus
 echo ==============================================================
 echo Starting Server - Buckle up prospectors!
 echo ==============================================================
-sudo -u steam wine /game/icarus/Icarus/Binaries/Win64/IcarusServer-Win64-Shipping.exe -Log -UserDir='C:\icarus' -SteamServerName="${SERVERNAME}" -PORT="${PORT}" -QueryPort="${QUERYPORT}"
+exec sudo -u steam wine /game/icarus/Icarus/Binaries/Win64/IcarusServer-Win64-Shipping.exe \
+  -Log \
+  -UserDir='C:\icarus' \
+  -SteamServerName="${SERVERNAME}" \
+  -PORT="${PORT}" \
+  -QueryPort="${QUERYPORT}"
