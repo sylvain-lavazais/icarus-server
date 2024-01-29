@@ -1,4 +1,3 @@
-
 ![Docker Pulls](https://img.shields.io/docker/pulls/nerodon/icarus-dedicated)
 ![Docker Stars](https://img.shields.io/docker/stars/nerodon/icarus-dedicated)
 ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/nerodon/icarus-dedicated/latest)
@@ -80,8 +79,8 @@ services:
       - QUERYPORT=27015
       - JOIN_PASSWORD=mypassword
       - ADMIN_PASSWORD=mysupersecretpassword
-      - STEAM_USERID=1000
-      - STEAM_GROUPID=1000
+      - STEAM_USERID=10000
+      - STEAM_GROUPID=10001
       - STEAM_ASYNC_TIMEOUT=60
 
 volumes:
