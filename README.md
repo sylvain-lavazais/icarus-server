@@ -1,5 +1,4 @@
 
-
 ![Docker Pulls](https://img.shields.io/docker/pulls/nerodon/icarus-dedicated)
 ![Docker Stars](https://img.shields.io/docker/stars/nerodon/icarus-dedicated)
 ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/nerodon/icarus-dedicated/latest)
@@ -7,7 +6,7 @@
 
 
 
-For assistance, message **@Nerodon** on the official Icarus Discord or open an issue on Gitlab
+No official assistance. This is based on **@Nerodon** 's image. They are available on the official Icarus Discord. This was updated to use Ubuntu 23.10 and Wine 9.0.
 
 [<img src="https://img.shields.io/badge/Discord-Linux_Docker_Support-7289da?logo=discord&logoColor=white">](https://discord.com/channels/715761957667602502/1048852109996593172)
 [<img src="https://img.shields.io/badge/Repository-Gitlab-orange?logo=gitlab">](https://gitlab.com/fred-beauch/icarus-dedicated-server)
@@ -15,7 +14,7 @@ For assistance, message **@Nerodon** on the official Icarus Discord or open an i
 
 
 # icarus-dedicated-server
-This dedicated server will automatically download/update to the latest available server version when started. The dedicated server runs in Ubuntu 22.04 and wine
+This dedicated server will automatically download/update to the latest available server version when started. The dedicated server runs in Ubuntu 23.10 and wine 9.0
 
 ## Environment Vars
 Refer to https://github.com/RocketWerkz/IcarusDedicatedServer/wiki/Server-Config-&-Launch-Parameters for more detail on server configs
