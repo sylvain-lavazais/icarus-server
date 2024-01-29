@@ -1,5 +1,3 @@
-
-
 ![Docker Pulls](https://img.shields.io/docker/pulls/nerodon/icarus-dedicated)
 ![Docker Stars](https://img.shields.io/docker/stars/nerodon/icarus-dedicated)
 ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/nerodon/icarus-dedicated/latest)
@@ -7,7 +5,7 @@
 
 
 
-For assistance, message **@Nerodon** on the official Icarus Discord or open an issue on Gitlab
+For assistance, message @Nerodon on the official Icarus Discord or open an issue on Gitlab. 
 
 [<img src="https://img.shields.io/badge/Discord-Linux_Docker_Support-7289da?logo=discord&logoColor=white">](https://discord.com/channels/715761957667602502/1048852109996593172)
 [<img src="https://img.shields.io/badge/Repository-Gitlab-orange?logo=gitlab">](https://gitlab.com/fred-beauch/icarus-dedicated-server)
@@ -15,7 +13,7 @@ For assistance, message **@Nerodon** on the official Icarus Discord or open an i
 
 
 # icarus-dedicated-server
-This dedicated server will automatically download/update to the latest available server version when started. The dedicated server runs in Ubuntu 22.04 and wine
+This dedicated server will automatically download/update to the latest available server version when started. The dedicated server runs in Ubuntu 23.10 and wine 9.0
 
 ## Environment Vars
 Refer to https://github.com/RocketWerkz/IcarusDedicatedServer/wiki/Server-Config-&-Launch-Parameters for more detail on server configs
@@ -34,8 +32,8 @@ Refer to https://github.com/RocketWerkz/IcarusDedicatedServer/wiki/Server-Config
 |LOAD_PROSPECT|Attempts to load a prospect by name from the Saved/PlayerData/DedicatedServer/Prospects/ folder.|
 |CREATE_PROSPECT|Creates and launches a new prospect. <br />**[ProspectType] [Difficulty] [Hardcore?] [SaveName]** <br />ProspectType - The internal name of the prospect to launch <br />Difficulty - A value of 1 to 4 for the difficulty (1 = easy, 4 = extreme) <br />Hardcore? - True or False value for if respawns are disabled <br />SaveName - The save name to use for this prospect. Must be included for outposts, if not included with regular prospects this will generate a random name. <br />**Example:** "Tier1_Forest_Recon_0 3 false TestProspect01" Will create a prospect on the tutorial prospect on hard difficulty and save it as TestProspect01|
 |RESUME_PROSPECT|Resumes the last prospect from the config file|True
-|STEAM_USERID| Linux User ID used by the steam user and volumes|1000
-|STEAM_GROUPID| Linux Group ID used by the steam user and volumes|1000
+|STEAM_USERID| Linux User ID used by the steam user and volumes|10000
+|STEAM_GROUPID| Linux Group ID used by the steam user and volumes|10001
 |STEAM_ASYNC_TIMEOUT| Sets the Async timeout to this value in the Engine.ini on server start| 60
 |BRANCH| Version branch (public or experimental)| public
 
@@ -48,7 +46,7 @@ They can be changed by specifying the PORT and QUERYPORT env vars respectively.
 - The server binaries are stored at /game/icarus
 - The server saves are stored at /home/steam/.wine/drive_c/icarus
 
-**Note:** by default, the volumes are owned by user 1000:1000 please set the permissions to the volumes accordingly. To change the user and group ID, simply define the STEAM_USERID and STEAM_GROUPID environment variables.
+**Note:** by default, the volumes are owned by user 10000:10001 please set the permissions to the volumes accordingly. To change the user and group ID, simply define the STEAM_USERID and STEAM_GROUPID environment variables.
 
 ## Example Docker Run
 ```bash
@@ -81,8 +79,8 @@ services:
       - QUERYPORT=27015
       - JOIN_PASSWORD=mypassword
       - ADMIN_PASSWORD=mysupersecretpassword
-      - STEAM_USERID=1000
-      - STEAM_GROUPID=1000
+      - STEAM_USERID=10000
+      - STEAM_GROUPID=10001
       - STEAM_ASYNC_TIMEOUT=60
 
 volumes:

@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:23.10
 
 # Default Environment Vars
 ENV SERVERNAME="Icarus Server"
@@ -18,8 +18,8 @@ ENV CREATE_PROSPECT=""
 ENV RESUME_PROSPECT="True"
 
 # Default User/Group ID
-ENV STEAM_USERID=1000
-ENV STEAM_GROUPID=1000
+ENV STEAM_USERID=10000
+ENV STEAM_GROUPID=10001
 
 # Engine.ini Async Timeout
 ENV STEAM_ASYNC_TIMEOUT=60
@@ -29,20 +29,22 @@ ENV BRANCH="public"
 
 # Get prereq packages
 RUN dpkg --add-architecture i386
+RUN mkdir -pm755 /etc/apt/keyrings
+RUN apt update && apt install -y wget
+RUN wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key
+RUN wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/mantic/winehq-mantic.sources
 RUN apt-get update && \
     apt-get install --no-install-recommends -y \
     ca-certificates \
     lib32gcc-s1 \
     sudo \
     curl \
-    wget \
     gnupg2 \
     software-properties-common \
-    wine \
-    wine64
+    winehq-stable
 
 # Create various folders
-RUN mkdir -p /root/icarus/drive_c/icarus \ 
+RUN mkdir -p /root/icarus/drive_c/icarus \
              /game/icarus \
              /home/steam/steamcmd
 
