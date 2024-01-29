@@ -30,6 +30,7 @@ ENV BRANCH="public"
 # Get prereq packages
 RUN dpkg --add-architecture i386
 RUN mkdir -pm755 /etc/apt/keyrings
+RUN apt update && apt install -y wget
 RUN wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key
 RUN wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/mantic/winehq-mantic.sources
 RUN apt-get update && \
@@ -38,7 +39,6 @@ RUN apt-get update && \
     lib32gcc-s1 \
     sudo \
     curl \
-    wget \
     gnupg2 \
     software-properties-common \
     wine \
