@@ -32,8 +32,8 @@ Refer to https://github.com/RocketWerkz/IcarusDedicatedServer/wiki/Server-Config
 |LOAD_PROSPECT|Attempts to load a prospect by name from the Saved/PlayerData/DedicatedServer/Prospects/ folder.|
 |CREATE_PROSPECT|Creates and launches a new prospect. <br />**[ProspectType] [Difficulty] [Hardcore?] [SaveName]** <br />ProspectType - The internal name of the prospect to launch <br />Difficulty - A value of 1 to 4 for the difficulty (1 = easy, 4 = extreme) <br />Hardcore? - True or False value for if respawns are disabled <br />SaveName - The save name to use for this prospect. Must be included for outposts, if not included with regular prospects this will generate a random name. <br />**Example:** "Tier1_Forest_Recon_0 3 false TestProspect01" Will create a prospect on the tutorial prospect on hard difficulty and save it as TestProspect01|
 |RESUME_PROSPECT|Resumes the last prospect from the config file|True
-|STEAM_USERID| Linux User ID used by the steam user and volumes|1000
-|STEAM_GROUPID| Linux Group ID used by the steam user and volumes|1000
+|STEAM_USERID| Linux User ID used by the steam user and volumes|10000
+|STEAM_GROUPID| Linux Group ID used by the steam user and volumes|10001
 |STEAM_ASYNC_TIMEOUT| Sets the Async timeout to this value in the Engine.ini on server start| 60
 |BRANCH| Version branch (public or experimental)| public
 
