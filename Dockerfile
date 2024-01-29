@@ -18,8 +18,8 @@ ENV CREATE_PROSPECT=""
 ENV RESUME_PROSPECT="True"
 
 # Default User/Group ID
-ENV STEAM_USERID=1000
-ENV STEAM_GROUPID=1000
+ENV STEAM_USERID=1005
+ENV STEAM_GROUPID=1005
 
 # Engine.ini Async Timeout
 ENV STEAM_ASYNC_TIMEOUT=60
@@ -41,11 +41,10 @@ RUN apt-get update && \
     curl \
     gnupg2 \
     software-properties-common \
-    wine \
-    wine64
+    winehq-stable
 
 # Create various folders
-RUN mkdir -p /root/icarus/drive_c/icarus \ 
+RUN mkdir -p /root/icarus/drive_c/icarus \
              /game/icarus \
              /home/steam/steamcmd
 
