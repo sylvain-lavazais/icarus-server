@@ -46,7 +46,7 @@ They can be changed by specifying the PORT and QUERYPORT env vars respectively.
 - The server binaries are stored at /game/icarus
 - The server saves are stored at /home/steam/.wine/drive_c/icarus
 
-**Note:** by default, the volumes are owned by user 1000:1000 please set the permissions to the volumes accordingly. To change the user and group ID, simply define the STEAM_USERID and STEAM_GROUPID environment variables.
+**Note:** by default, the volumes are owned by user 10000:10001 please set the permissions to the volumes accordingly. To change the user and group ID, simply define the STEAM_USERID and STEAM_GROUPID environment variables.
 
 ## Example Docker Run
 ```bash
