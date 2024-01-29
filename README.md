@@ -5,7 +5,7 @@
 
 
 
-For assistance, message @Nerodon on the official Icarus Discord or open an issue on Gitlab. This was updated to use Ubuntu 23.10 and Wine 9.0.
+For assistance, message @Nerodon on the official Icarus Discord or open an issue on Gitlab. 
 
 [<img src="https://img.shields.io/badge/Discord-Linux_Docker_Support-7289da?logo=discord&logoColor=white">](https://discord.com/channels/715761957667602502/1048852109996593172)
 [<img src="https://img.shields.io/badge/Repository-Gitlab-orange?logo=gitlab">](https://gitlab.com/fred-beauch/icarus-dedicated-server)
